@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html>  
+<body>
+
+<p>Name: <?php echo $_POST["name"]?></p>
+<p>Course: <?php echo $_POST["course"]?></p>
+<p>Email: <?php echo $_POST["email"]?></p>
+<p>Contact No: <?php echo $_POST["cno"]?></p>
+<p>College: <?php echo $_POST["clg"]?></p>
+<p>Qualification: <?php echo $_POST["qa"]?></p>
+<p>Semester: <?php echo $_POST["sem"]?></p>
+<p>Address: <?php echo $_POST["add"]?></p>
+<p>Preferred Time: <?php echo $_POST["pt"]?></p>
+<p>Joining Date: <?php echo $_POST["jd"]?></p>
+
+
+</body>
+</html>
