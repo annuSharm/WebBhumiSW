@@ -276,8 +276,8 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo '<div class="row"><div class="col-sm-10 col-sm-offset-1" style="overflow:auto; height:268px;"><table style="width:100%;">';
-echo "<tr><th>R.No</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Reference</th><th>Feedback</th><th>Date</th><th>Status</th></tr>";
+echo '<div class="row"><div class="col-sm-10 col-sm-offset-1" style="overflow:auto; height:280px;"><table style="width:100%;">';
+echo "<tr><th>R.No</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Reference</th><th>Feedback</th><th>Call Date</th><th>Status</th></tr>";
 
 	if (mysqli_num_rows($result)>0) 
 {
@@ -285,7 +285,7 @@ echo "<tr><th>R.No</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th
     while($row = mysqli_fetch_assoc($result)) 
 	{
 		
-         echo "<tr> <td>". $row['RegistrationNo']. "</td> <td>". $row['Name']. "</td> <td>". $row['Course']. "</td> <td>" . $row['Fees'] . "</td> <td>". $row['ContactNo']. "</td> <td>". $row['Email']. "</td> <td>". $row['College']. "</td> <td>". $row['Refrence']."</td> <td>". $row['Feedback']. "</td><td>". $row['Date']. "</td> <td>"."<input type=\"submit\" value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></tr>";
+         echo "<tr> <td>". $row['RegistrationNo']. "</td> <td>". $row['Name']. "</td> <td>". $row['Course']. "</td> <td>" . $row['Fees'] . "</td> <td>". $row['ContactNo']. "</td> <td>". $row['Email']. "</td> <td>". $row['College']. "</td> <td>". $row['Refrence']."</td> <td>". $row['Feedback']. "</td><td>". $row['CallDate']. "</td> <td>"."<input type=\"submit\" value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></tr>";
 		 /*echo "<tr> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td>
 		 <td>"."<input type=\"hidden\" name=\"nam\" value=\"". $row['Name']. "</td> 
 		 <td>"."<input type=\"hidden\" name=\"cours\" value=\"". $row['Course']. "</td>

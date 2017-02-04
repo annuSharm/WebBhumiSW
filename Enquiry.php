@@ -164,24 +164,27 @@ body {
 <p>Feedback:<?php echo $_POST["fdb"]?></p>
 -->
 <?php
+error_reporting(0);
 $servername = "localhost";
 $username = "root";
 $password = "boot";
-/*
-$RegistrationNo=null;
-$name=null;
-$course=null;
-$email=null;
-$contactNo=null;
-$college=null;
-$qualification=null;
-//$semester=null;
+
+$RegistrationNo;
+$name;
+$course;
+$email;
+$contactNo;
+$college;
+$qualification;
+//$semester;
 $address=null;
-$preferredTime=null;
-$joiningDate=null;
-$refrence=null;
-$feedback=null;
-*/
+$preferredTime;
+$joiningDate;
+$refrence;
+$feedback;
+
+if($_POST)
+{
 $RegistrationNo=$_POST["registrationNo"];
 if($_POST["name"])
 {
@@ -218,22 +221,26 @@ $preferredTime=$_POST["pt"];
 $joiningDate=$_POST["jd"];
 $refrence=$_POST["ref"];
 $feedback=$_POST["fdb"];
-
+$Jdate=$_POST["jd"];
+$date=date('d-m-y');
+}
 // Create connection
 $conn = new mysqli($servername, $username, $password, "sm");
 
-$sql="INSERT INTO `home` (`RegistrationNo`,`Name`, `Course`,`Email`,`ContactNo`,`College`,`Qualification`,`Address`,`BatchTime`,`CallDate`,`Refrence`,`Feedback`) VALUES ('$RegistrationNo','$name','$course','$email','$contactNo','$college','$qualification','$address','$preferredTime','$joiningDate','$refrence','$feedback')";
+$sql="INSERT INTO `home` (`RegistrationNo`,`Name`, `Course`,`Email`, `Date` ,`ContactNo`,`College`,`Qualification`,`Address`,`BatchTime`,`CallDate`,`Refrence`,`Feedback`) VALUES ('$RegistrationNo','$name','$course','$email','$date','$contactNo','$college','$qualification','$address','$preferredTime','$joiningDate','$refrence','$feedback')";
 
 // Check connection
+
 if ($conn->connect_error) 
 {
     die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
-
-if ($conn->query($sql) === TRUE) {
-    echo "New record created successfully";
-} else {
+//echo "Connected successfully";     //(if want to check connection then u can show it)
+if ($conn->query($sql) === TRUE) 
+{
+    //echo "New record created successfully";
+} else 
+{
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
