@@ -1,1 +1,15 @@
 Please mention every thing which we need to do here.
+
+
+1)enquiry to registration send data and display in respective field
+2)editable feedback create feedback table.
+3)enquiry aceppting null data.
+____________________________________________________________________________________________________________
+
+commands to push & pull 
+1) to push
+	i)   git add *
+	ii)  git commit -m "any msg"
+	iii) git push origin master
+2) to pull
+	i)git pull origin master
