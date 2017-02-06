@@ -1,9 +1,14 @@
+URGENT
+1) export database form phpmyAdmin and paste in this folder and then push again.
+
 Please mention every thing which we need to do here.
 
 
 1)enquiry to registration send data and display in respective field
 2)editable feedback create feedback table.
 3)enquiry aceppting null data.
+
+
 ____________________________________________________________________________________________________________
 
 commands to push & pull 
