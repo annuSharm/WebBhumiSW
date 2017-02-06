@@ -148,7 +148,7 @@ $feedback=$_POST["fdb"];
 }
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-$sql = "SELECT * FROM `home` ORDER BY `Fees` DESC";
+$sql = "SELECT * FROM `home` ORDER BY `CallDate` DESC";
 $sql1="SELECT * FROM `home` WHERE ";
 $andd=0;
 
@@ -268,7 +268,7 @@ if($_POST["fdb"]!=null)
 		
 	}		
 }
-
+$sql1= $sql1." ORDER BY `CallDate` DESC ";
 $result = $conn->query($sql1);
 // Check connection
 	
@@ -303,6 +303,12 @@ else
 {
      echo "0 results";
 }
+
+if(!$_POST)
+{
+						$sql1="SELECT * FROM `home` WHERE Name LIKE '%$name' AND ContactNo LIKE '%$contactNo' AND Course LIKE '%$course' AND Refrence LIKE '%$Refrence' AND Date LIKE '%$date' AND Feedback LIKE '%$feedback'";
+}
+
 
 echo"</table></div></div>";
 

@@ -103,13 +103,14 @@ $servername = "localhost";
 $username = "root";
 $password = "boot";
 $dbname = "sm";
-$name;//=$_POST["Name"];
-$contactNo;//=$_POST["ContactNo"];
-$course;//=$_POST["Course"];
-$Refrence;//=$_POST["Reference"];
-$date;//=$_POST["Date"];
-$course;//=$_POST["course"];
-$feedback;//=$_POST["fdb"];
+/*$name=$_POST["Name"];
+$contactNo=$_POST["ContactNo"];
+$course=$_POST["Course"];
+$Refrence=$_POST["Reference"];
+$date=$_POST["Date"];
+//$course=$_POST["course"];
+$feedback=$_POST["fdb"];
+*/
 $search=$_POST["sr"];
 
 
@@ -122,12 +123,13 @@ $conn = new mysqli($servername, $username, $password, "sm");
 if(!$_POST["sr"]=null)
 {
 	echo "<br>";
-//$sql1="SELECT * FROM `home` WHERE Name LIKE '%$name' AND ContactNo LIKE '%$contactNo' AND Course LIKE '%$course' AND Refrence LIKE '%$Refrence' AND Date LIKE '%$date' AND Feedback LIKE '%$feedback'";
+
+	$sql = "SELECT * FROM `home` ORDER BY `CallDate` DESC";
 }
 if($_POST["sr"]!=null)
 {
-$sql="SELECT * FROM `Registration` WHERE RegistrationNo LIKE '%$search%' OR Name LIKE '%$search%' OR Course LIKE '%$search%' OR Email LIKE '%$search%' OR ContactNo LIKE '%$search%' OR College LIKE '%$search%' OR Qualification LIKE '%$search%' OR Semester LIKE '%$search%' OR Address LIKE '%$search%' OR Refrence LIKE '%$search%' OR Feedback LIKE '%$search%'";
-$sql1="SELECT * FROM `Enquiry` WHERE RegistrationNo LIKE '%$search%' OR Name LIKE '%$search%' OR Course LIKE '%$search%' OR Email LIKE '%$search%' OR ContactNo LIKE '%$search%' OR College LIKE '%$search%' OR Qualification LIKE '%$search%' OR Semester LIKE '%$search%' OR Address LIKE '%$search%' OR PreferredTime LIKE '%$search%' OR JoiningDate LIKE '%$search%' OR Refrence LIKE '%$search%' OR Feedback LIKE '%$search%'";
+$sql="SELECT * FROM `home` WHERE RegistrationNo LIKE '%$search%' OR Name LIKE '%$search%' OR Course LIKE '%$search%' OR Email LIKE '%$search%' OR ContactNo LIKE '%$search%' OR College LIKE '%$search%' OR Qualification LIKE '%$search%' OR Semester LIKE '%$search%' OR Address LIKE '%$search%' OR Refrence LIKE '%$search%' OR Feedback LIKE '%$search%'";
+//$sql1="SELECT * FROM `Enquiry` WHERE RegistrationNo LIKE '%$search%' OR Name LIKE '%$search%' OR Course LIKE '%$search%' OR Email LIKE '%$search%' OR ContactNo LIKE '%$search%' OR College LIKE '%$search%' OR Qualification LIKE '%$search%' OR Semester LIKE '%$search%' OR Address LIKE '%$search%' OR PreferredTime LIKE '%$search%' OR JoiningDate LIKE '%$search%' OR Refrence LIKE '%$search%' OR Feedback LIKE '%$search%'";
 // Check connection
 echo "Data from Registration  <br>";
 if ($conn->connect_error)
@@ -148,6 +150,7 @@ if ($result->num_rows > 0)
     echo "Error:" . "<br>" . $conn->error;
 }
 echo "Data from enquiry <br>";
+/*
 $result = $conn->query($sql1);
 if ($result->num_rows > 0) 
 {
@@ -158,6 +161,7 @@ if ($result->num_rows > 0)
 } else {
     echo "Error:" . "<br>" . $conn->error;
 }
+*/
 }
 $conn->close();
 ?>

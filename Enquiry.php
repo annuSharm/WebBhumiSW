@@ -223,11 +223,12 @@ $refrence=$_POST["ref"];
 $feedback=$_POST["fdb"];
 $Jdate=$_POST["jd"];
 $date=date('d-m-y');
+$UN=$_SESSION['UserName'];
 }
 // Create connection
 $conn = new mysqli($servername, $username, $password, "sm");
 
-$sql="INSERT INTO `home` (`RegistrationNo`,`Name`, `Course`,`Email`, `Date` ,`ContactNo`,`College`,`Qualification`,`Address`,`BatchTime`,`CallDate`,`Refrence`,`Feedback`) VALUES ('$RegistrationNo','$name','$course','$email','$date','$contactNo','$college','$qualification','$address','$preferredTime','$joiningDate','$refrence','$feedback')";
+$sql="INSERT INTO `home` (`RegistrationNo`,`Name`, `Course`,`Email`, `Date` ,`ContactNo`,`College`,`Qualification`,`Address`,`BatchTime`,`CallDate`,`Refrence`,`Feedback`,`UserName`) VALUES ('$RegistrationNo','$name','$course','$email','$date','$contactNo','$college','$qualification','$address','$preferredTime','$joiningDate','$refrence','$feedback','$UN')";
 
 // Check connection
 
