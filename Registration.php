@@ -59,21 +59,22 @@ body {
 		</div>
 		<br><br><br>
     <div class="form-group">
-      <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Registration No:</label>
+	
+      <label class="control-label col-sm-3" for="email" style="font-size:100%; color:white">Registration No:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="registration No" placeholder="" name="registrationNo">
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["RegNo"];?>" id="registration No" placeholder="" name="RegNo">
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="name"  style="font-size:100%; color:white">Name:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="name" placeholder="Enter Name" name="name" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["name"];?>" id="name" placeholder="Enter Name" name="nam" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Contact No:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="cno" value="<?php echo $_POST["name"];?>" name="cno" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["ContactNo"];?>" id="cno"  name="cno" required>
       </div>
     </div>
 	<div class="form-group">
@@ -84,7 +85,7 @@ body {
     
 	  <label class="control-label col-sm-1" for="pwd" style="font-size:100%; color:white;">College:</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control input-sm" id="clg" placeholder="Enter College Name " name="clg" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["College"];?>" id="clg" placeholder="Enter College Name " name="clg" required>
       </div>
 	  </div>
       <!--<label class="control-label col-sm-1" for="pwd" style="font-size:100%; color:white;">Sem:</label>
@@ -103,25 +104,25 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Email:</label>
       <div class="col-sm-7">
-        <input type="email" class="form-control input-sm" id="email" placeholder="Enter email" name="email" required>
+        <input type="email" class="form-control input-sm" value="<?php echo $_GET["Email"];?>" id="email" placeholder="Enter email" name="email" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="pwd" style="font-size:100%; color:white;">Address:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="add" placeholder="Enter Address " name="add" required>
+        <input type="text" class="form-control input-sm"  id="add" placeholder="Enter Address " name="add" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Course:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="course" placeholder="Enter Course Name" name="course" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["course"];?>" id="course" placeholder="Enter Course Name" name="course" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="jd"  style="font-size:100%; color:white">Joining Date:</label>
       <div class="col-sm-7">
-        <input type="date" class="form-control input-sm" id="jd" placeholder="Enter Joining Date" name="jd" required>
+        <input type="date" class="form-control input-sm" value="<?php echo $_GET["CallDate"];?>" id="jd" placeholder="Enter Joining Date" name="jd" required>
       </div>
     </div>
 	<div class="form-group">
@@ -166,13 +167,13 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="name"  style="font-size:100%; color:white">Refrence:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" id="ref" placeholder="Enter Refrence" name="ref" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["Refrence"];?>" id="ref" placeholder="Enter Refrence" name="ref" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="Feedback"  style="font-size:100%; color:white">Feedback:</label>
       <div class="col-sm-7">
-        <textarea class="form-control input-sm" rows="3" id="fdb" placeholder="Enter Feedback" name="fdb" required></textarea>
+        <textarea class="form-control input-sm" rows="3" value="<?php echo $_GET["Feedback"];?>" id="fdb" placeholder="Enter Feedback" name="fdb" required></textarea>
       </div>
     </div>
 	

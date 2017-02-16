@@ -4,9 +4,8 @@ Please mention every thing which we need to do here.
 1)enquiry to registration send data and display in respective field
 2)editable feedback create feedback table.
 3)enquiry aceppting null data.
-
-
-
+4)Next isnstalment Date.
+5)
 ____________________________________________________________________________________________________________
 
 commands to push & pull 
@@ -16,3 +15,6 @@ commands to push & pull
 	iii) git push origin master
 2) to pull
 	i)git pull origin master
+
+
+9691964567

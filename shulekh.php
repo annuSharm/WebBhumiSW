@@ -276,7 +276,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo '<div class="row"><div class="col-sm-10 col-sm-offset-1" style="overflow:auto; height:280px;"><table style="width:100%;">';
+echo '<div class="row"><div class="col-sm-12 col-sm-offset-0" style="overflow:auto; height:280px;"><table style="width:100%;">';
 echo "<tr><th>R.No</th><th>Call Date</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Reference</th><th>Feedback</th><th>Status</th></tr>";
 
 	if (mysqli_num_rows($result)>0) 
@@ -284,8 +284,7 @@ echo "<tr><th>R.No</th><th>Call Date</th><th>Name</th><th>Course</th><th>Fee</th
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) 
 	{
-		
-         echo "<tr> <td>". $row['RegistrationNo']. "</td> <td>". $row['CallDate']. "</td> <td>". $row['Name']. "</td> <td>". $row['Course']. "</td> <td>" . $row['Fees'] . "</td> <td>". $row['ContactNo']. "</td> <td>". $row['Email']. "</td> <td>". $row['College']. "</td> <td>". $row['Refrence']."</td> <td>". $row['Feedback']. "</td> <td>"."<input type=\"submit\" value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></tr>";
+         echo "<tr><form action=\"Registration.php\"> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td> <td>"."<input type=\"hidden\" name=\"jd\" value=\"".$row['CallDate']."\">". $row['CallDate']. "</td> <td>"."<input type=\"hidden\" name=\"name\" value=\"".$row['Name']."\">". $row['Name']. "</td> <td>"."<input type=\"hidden\" name=\"course\" value=\"".$row['Course']."\">". $row['Course']. "</td> <td>" . $row['Fees'] . "</td> <td>"."<input type=\"hidden\" name=\"cno\" value=\"".$row['ContactNoNo']."\">". $row['ContactNo']. "</td> <td>"."<input type=\"hidden\" name=\"email\" value=\"".$row['Email']."\">". $row['Email']. "</td> <td>"."<input type=\"hidden\" name=\"clg\" value=\"".$row['College']."\">". $row['College']. "</td> <td>"."<input type=\"hidden\" name=\"ref\" value=\"".$row['Refrence']."\">". $row['Refrence']."</td> <td>"."<input type=\"hidden\" name=\"fdb\" value=\"".$row['Feedback']."\">". $row['Feedback']. "</td> <td>"."<input type=\"submit\" value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></form></tr>";
 		 /*echo "<tr> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td>
 		 <td>"."<input type=\"hidden\" name=\"nam\" value=\"". $row['Name']. "</td> 
 		 <td>"."<input type=\"hidden\" name=\"cours\" value=\"". $row['Course']. "</td>
