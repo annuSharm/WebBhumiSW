@@ -74,7 +74,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Contact No:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" value="<?php echo $_GET["ContactNo"];?>" id="cno"  name="cno" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["cno"];?>" id="cno"  name="cno" required>
       </div>
     </div>
 	<div class="form-group">
@@ -85,7 +85,7 @@ body {
     
 	  <label class="control-label col-sm-1" for="pwd" style="font-size:100%; color:white;">College:</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control input-sm" value="<?php echo $_GET["College"];?>" id="clg" placeholder="Enter College Name " name="clg" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["clg"];?>" id="clg" placeholder="Enter College Name " name="clg" required>
       </div>
 	  </div>
       <!--<label class="control-label col-sm-1" for="pwd" style="font-size:100%; color:white;">Sem:</label>
@@ -104,7 +104,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="email"  style="font-size:100%; color:white">Email:</label>
       <div class="col-sm-7">
-        <input type="email" class="form-control input-sm" value="<?php echo $_GET["Email"];?>" id="email" placeholder="Enter email" name="email" required>
+        <input type="email" class="form-control input-sm" value="<?php echo $_GET["email"];?>" id="email" placeholder="Enter email" name="email" required>
       </div>
     </div>
 	<div class="form-group">
@@ -122,7 +122,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="jd"  style="font-size:100%; color:white">Joining Date:</label>
       <div class="col-sm-7">
-        <input type="date" class="form-control input-sm" value="<?php echo $_GET["CallDate"];?>" id="jd" placeholder="Enter Joining Date" name="jd" required>
+        <input type="date" class="form-control input-sm" value="<?php echo $_GET["jd"];?>" id="jd" placeholder="Enter Joining Date" name="jd" required>
       </div>
     </div>
 	<div class="form-group">
@@ -167,13 +167,13 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="name"  style="font-size:100%; color:white">Refrence:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" value="<?php echo $_GET["Refrence"];?>" id="ref" placeholder="Enter Refrence" name="ref" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["ref"];?>" id="ref" placeholder="Enter Refrence" name="ref" required>
       </div>
     </div>
 	<div class="form-group">
       <label class="control-label col-sm-3" for="Feedback"  style="font-size:100%; color:white">Feedback:</label>
       <div class="col-sm-7">
-        <textarea class="form-control input-sm" rows="3" value="<?php echo $_GET["Feedback"];?>" id="fdb" placeholder="Enter Feedback" name="fdb" required></textarea>
+        <textarea class="form-control input-sm" rows="3" value="<?php echo $_GET["fdb"];?>" id="fdb" placeholder="Enter Feedback" name="fdb" required></textarea>
       </div>
     </div>
 	
@@ -232,17 +232,24 @@ $course=$_POST["course"];
 $joiningDate=$_POST["jd"];
 $batchTime=$_POST["bt"];
 $fees=$_POST["fee"];
-$paidfee=$_POST["paidFee"];
+$paidfee=$_POST["PaidFee"];
 $NextID=$_POST["nid"];
 //$installment2=$_POST["ins2"];
 //$submissionDate2=$_POST["sd2"];
 $refrence=$_POST["ref"];
 $feedback=$_POST["fdb"];
+echo $date=date('d-m-y');
+$UN=$_SESSION['UserName'];
 
+if(!$_POST)
+{
+	echo "please enter the data";
+}
+else{
 // Create connection
 $conn = new mysqli($servername, $username, $password, "sm");
 
-$sql="INSERT INTO `Home` (`RegistrationNo`,`Name`, `ContactNo`,`Qualification`,`College`,`Email`,`Address`,`Course`,`Fee`,`PaidFee`,`NID`,`Refrence`,`Feedback`) VALUES ("."''".",'".$name."','".$contactNo."','".$qualification."','".$college."','".$email."','".$address."','".$course."','".$fees."','".$paidfee."','".$NextID."','".$refrence."','".$feedback."')";
+$sql="UPDATE `Home` (`RegistrationNo`,`Name`,`Date`,`UserName`,`BatchTime`, `ContactNo`,`Qualification`,`College`,`Email`,`Address`,`Course`,`Fee`,`PaidFee`,`NID`,`Refrence`,`Feedback`) VALUES ("."''".",'".$name."','".$date."','".$UN."','".$batchTime."','".$contactNo."','".$qualification."','".$college."','".$email."','".$address."','".$course."','".$fees."','".$paidfee."','".$NextID."','".$refrence."','".$feedback."')";
 // Check connection
 if ($conn->connect_error) 
 {
@@ -252,12 +259,13 @@ if ($conn->connect_error)
 
 if ($conn->query($sql) === TRUE) {
    // echo "New record created successfully";
-   header('Location:Enquiry.php');
+   //header('Location:Enquiry.php');
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
+}
 ?> 
 
 </div>

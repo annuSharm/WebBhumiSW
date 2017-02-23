@@ -135,12 +135,13 @@ $Refrence;
 $date;
 //$course=$_POST["CDate1"];
 $feedback;
-
+$fee;
 if($_POST)
 {
 $name=$_POST["Name"];
 $contactNo=$_POST["ContactNo"];
 $course=$_POST["Course"];
+$qualification= $_POST["qa"];
 $Refrence=$_POST["Ref"];
 $date=$_POST["Date"];
 //$course=$_POST["CDate1"];
@@ -216,6 +217,43 @@ if($_POST["Course"]!=null)
 	
 }
 
+$n=" Fee LIKE '%$fee'";
+if($_POST["Fee"]!=null)
+{
+	
+	
+	if($andd==0)
+	{
+	$sql1=$sql1.$n;
+	$andd=1;
+	}
+	else
+	{
+		$sql1=$sql1." AND".$n;
+		
+	}	
+	
+}
+
+$n=" Qualification LIKE '%$qualification'";
+if($_POST["qa"]!=null)
+{
+	
+	
+	if($andd==0)
+	{
+	$sql1=$sql1.$n;
+	$andd=1;
+	}
+	else
+	{
+		$sql1=$sql1." AND".$n;
+		
+	}	
+	
+}
+
+
 $n=" Refrence LIKE '%$Refrence'";
 if($_POST["Ref"]!=null)
 {
@@ -277,14 +315,24 @@ if (!$conn) {
 }
 
 echo '<div class="row"><div class="col-sm-12 col-sm-offset-0" style="overflow:auto; height:280px;"><table style="width:100%;">';
-echo "<tr><th>R.No</th><th>Call Date</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Reference</th><th>Feedback</th><th>Status</th></tr>";
+echo "<tr><th>R.No</th><th>Call Date</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Qualification</th><th>Reference</th><th>Feedback</th><th>Status</th></tr>";
 
 	if (mysqli_num_rows($result)>0) 
 {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) 
 	{
-         echo "<tr><form action=\"Registration.php\"> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td> <td>"."<input type=\"hidden\" name=\"jd\" value=\"".$row['CallDate']."\">". $row['CallDate']. "</td> <td>"."<input type=\"hidden\" name=\"name\" value=\"".$row['Name']."\">". $row['Name']. "</td> <td>"."<input type=\"hidden\" name=\"course\" value=\"".$row['Course']."\">". $row['Course']. "</td> <td>" . $row['Fees'] . "</td> <td>"."<input type=\"hidden\" name=\"cno\" value=\"".$row['ContactNoNo']."\">". $row['ContactNo']. "</td> <td>"."<input type=\"hidden\" name=\"email\" value=\"".$row['Email']."\">". $row['Email']. "</td> <td>"."<input type=\"hidden\" name=\"clg\" value=\"".$row['College']."\">". $row['College']. "</td> <td>"."<input type=\"hidden\" name=\"ref\" value=\"".$row['Refrence']."\">". $row['Refrence']."</td> <td>"."<input type=\"hidden\" name=\"fdb\" value=\"".$row['Feedback']."\">". $row['Feedback']. "</td> <td>"."<input type=\"submit\" value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></form></tr>";
+         echo "<tr><form action=\"Registration.php\"> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". 
+$row['RegistrationNo']. "</td> <td>"."<input type=\"hidden\" name=\"jd\" value=\"".$row['CallDate']."\">". $row['CallDate']. "</td> 
+<td>"."<input type=\"hidden\" name=\"name\" value=\"".$row['Name']."\">". $row['Name']. "</td> <td>"."<input type=\"hidden\" 
+name=\"course\" value=\"".$row['Course']."\">". $row['Course']. "</td> <td>"."<input type=\"hidden\" 
+name=\"fee\" value=\"".$row['Fee']."\">" . $row['Fee'] . "</td> <td>"."<input type=\"hidden\" 
+name=\"cno\" value=\"".$row['ContactNo']."\">". $row['ContactNo']. "</td> <td>"."<input type=\"hidden\" name=\"email\" 
+value=\"".$row['Email']."\">". $row['Email']. "</td> <td>"."<input type=\"hidden\" name=\"clg\" value=\"".$row['College']."\">". 
+$row['College']. "</td>$qualification <td>"."<input type=\"hidden\" name=\"qa\" value=\"".$row['Qualification']."\">". 
+$row['Qualification']. "</td> <td>"."<input type=\"hidden\" name=\"ref\" value=\"".$row['Refrence']."\">". $row['Refrence']."</td> 
+<td>"."<input type=\"hidden\" name=\"fdb\" value=\"".$row['Feedback']."\">". $row['Feedback']. "</td> <td>"."<input type=\"submit\" 
+value=\"search\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></form></tr>";
 		 /*echo "<tr> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td>
 		 <td>"."<input type=\"hidden\" name=\"nam\" value=\"". $row['Name']. "</td> 
 		 <td>"."<input type=\"hidden\" name=\"cours\" value=\"". $row['Course']. "</td>
