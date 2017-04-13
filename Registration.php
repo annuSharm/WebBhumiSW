@@ -249,13 +249,17 @@ else{
 // Create connection
 $conn = new mysqli($servername, $username, $password, "sm");
 
-$sql="UPDATE `Home` (`RegistrationNo`,`Name`,`Date`,`UserName`,`BatchTime`, `ContactNo`,`Qualification`,`College`,`Email`,`Address`,`Course`,`Fee`,`PaidFee`,`NID`,`Refrence`,`Feedback`) VALUES ("."''".",'".$name."','".$date."','".$UN."','".$batchTime."','".$contactNo."','".$qualification."','".$college."','".$email."','".$address."','".$course."','".$fees."','".$paidfee."','".$NextID."','".$refrence."','".$feedback."')";
+/*$sql="UPDATE `Home` (`RegistrationNo`,`Name`,`Date`,`UserName`,`BatchTime`, `ContactNo`,`Qualification`,`College`,`Email`,`Address`,`Course`,`Fee`,`PaidFee`,`NID`,`Refrence`,`Feedback`) VALUES ("."''".",'".$name."','".$date."','".$UN."','".$batchTime."','".$contactNo."','".$qualification."','".$college."','".$email."','".$address."','".$course."','".$fees."','".$paidfee."','".$NextID."','".$refrence."','".$feedback."')";
+*/
+
+$sql="UPDATE `Home` SET UserName='".$UN."', Name ='".$name."', Date = '".$date."', BatchTime = '".$batchTime."', ContactNo='".$contactNo."', Qualification='".$qualification."', College='".$college."' , Email='".$email."', Address='".$address."', Course= '".$course."', Fee='".$fees."',PaidFee='".$paidfee."',NID='".$NextID."', Refrence='".$refrence."', Feedback='".$feedback."' WHERE RegistrationNo ='".$_GET["RegNo"]; 
+
 // Check connection
 if ($conn->connect_error) 
 {
     die("Connection failed: " . $conn->connect_error);
 }
-//echo "Connected successfully";
+//echo Connected successfully;
 
 if ($conn->query($sql) === TRUE) {
    // echo "New record created successfully";

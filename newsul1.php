@@ -220,7 +220,7 @@ if($_POST["ContactNo"]!=null)
 	}
 	else
 	{
-		$sql1=$sql1+$andd+$_POST["ContactNo"];
+		$sql1=$sql1.$andd.$_POST["ContactNo"];
 		if ($result1->num_rows > 0) 
 		{
 			echo '<div class="row"><div class="col-md-12"><table style="width:100%;">';
@@ -243,7 +243,7 @@ if($_POST["Course"]!=null)
 {
 	if($andd==0)
 	{
-		$sql1=$sql1+$_POST["Course"];
+		$sql1=$sql1.$_POST["Course"];
 		if ($result1->num_rows > 0) 
 		{
 			echo '<div class="row"><div class="col-md-12"><table style="width:100%;">';
@@ -263,7 +263,7 @@ if($_POST["Course"]!=null)
 	}
 	else
 	{
-		$sql1=$sql1+$andd+$_POST["Course"];
+		$sql1=$sql1.$_POST["Course"];
 		if ($result1->num_rows > 0) 
 		{
 			echo '<div class="row"><div class="col-md-12"><table style="width:100%;">';
