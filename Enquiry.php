@@ -49,7 +49,7 @@ body {
   <form class="form-horizontal" action="" method="post">
 			<div class="form-group">
 					<div class="col-sm-offset-1 col-sm-2">
-						<a class="btn" href="search.php">
+						<a class="btn" href="shulekh.php">
 							<input type="button" value="Home" class="btn btn-primary btn-lg btn-block"></button>
 						</a>
 					</div>

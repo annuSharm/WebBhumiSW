@@ -68,7 +68,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="name"  style="font-size:100%; color:white">Name:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm" value="<?php echo $_GET["name"];?>" id="name" placeholder="Enter Name" name="nam" required>
+        <input type="text" class="form-control input-sm" value="<?php echo $_GET["name"];?>" id="name" placeholder="Enter Name" name="name" required>
       </div>
     </div>
 	<div class="form-group">
@@ -80,7 +80,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="pwd" style="font-size:100%; color:white;">Qualification:</label>
       <div class="col-sm-3">
-        <input type="text" class="form-control input-sm" id="qa" placeholder="Enter Qualification " name="qa" required>
+        <input type="text" class="form-control input-sm" id="qa" value="<?php echo $_GET["qa"];?>" placeholder="Enter Qualification " name="qa" required>
       </div>
     
 	  <label class="control-label col-sm-1" for="pwd" style="font-size:100%; color:white;">College:</label>
@@ -110,7 +110,7 @@ body {
 	<div class="form-group">
       <label class="control-label col-sm-3" for="pwd" style="font-size:100%; color:white;">Address:</label>
       <div class="col-sm-7">
-        <input type="text" class="form-control input-sm"  id="add" placeholder="Enter Address " name="add" required>
+        <input type="text" class="form-control input-sm"  id="add"  placeholder="Enter Address " name="add" required>
       </div>
     </div>
 	<div class="form-group">
@@ -189,34 +189,19 @@ body {
 
 <div style="color:white;">
 
-<!-- <p>Registration No:<?php echo $_POST["registrationNo"] ?></p>
-<p>Name: <?php echo $_POST["name"]?></p>
-<p>Contact No: <?php echo $_POST["cno"]?></p>
-<p>Qualification: <?php echo $_POST["qa"]?></p>
-<p>Semester: <?php echo $_POST["sem"]?></p>
-<p>College: <?php echo $_POST["clg"]?></p>
-<p>Email: <?php echo $_POST["email"]?></p>
-<p>Address: <?php echo $_POST["add"]?></p>
-<p>Course: <?php echo $_POST["course"]?></p>
-<p>Joining Date: <?php echo $_POST["jd"]?></p>
-<p>Batch Time: <?php echo $_POST["bt"]?></p>
-<p>Fees: <?php echo $_POST["fee"]?></p>
-<p>Installment1: <?php echo $_POST["ins1"]?></p>
-<p>submission Date 1: <?php echo $_POST["sd1"]?></p>
-<p>Installment2: <?php echo $_POST["ins2"]?></p>
-<p>submission Date 2: <?php echo $_POST["sd2"]?></p> 
-<p>Refrence:<?php echo $_POST["ref"]?></p>
-<p>Feedback:<?php echo $_POST["fdb"]?></p>-->
+
 
  <?php
 $servername = "localhost";
 $username = "root";
 $password = "boot";
-
-$RegistrationNo=$_POST["registrationNo"];
+if(sizeof($_POST)!=0)
+{
+$RegistrationNo=$_POST["RegNo"];
 if($_POST["name"])
 {
 	$name=$_POST["name"];
+	echo $name;
 }
 if($_POST["cno"])
 {
@@ -238,7 +223,7 @@ $NextID=$_POST["nid"];
 //$submissionDate2=$_POST["sd2"];
 $refrence=$_POST["ref"];
 $feedback=$_POST["fdb"];
-echo $date=date('d-m-y');
+$date=date('d-m-y');
 $UN=$_SESSION['UserName'];
 
 if(!$_POST)
@@ -251,23 +236,25 @@ $conn = new mysqli($servername, $username, $password, "sm");
 
 /*$sql="UPDATE `Home` (`RegistrationNo`,`Name`,`Date`,`UserName`,`BatchTime`, `ContactNo`,`Qualification`,`College`,`Email`,`Address`,`Course`,`Fee`,`PaidFee`,`NID`,`Refrence`,`Feedback`) VALUES ("."''".",'".$name."','".$date."','".$UN."','".$batchTime."','".$contactNo."','".$qualification."','".$college."','".$email."','".$address."','".$course."','".$fees."','".$paidfee."','".$NextID."','".$refrence."','".$feedback."')";
 */
-
-$sql="UPDATE `Home` SET UserName='".$UN."', Name ='".$name."', Date = '".$date."', BatchTime = '".$batchTime."', ContactNo='".$contactNo."', Qualification='".$qualification."', College='".$college."' , Email='".$email."', Address='".$address."', Course= '".$course."', Fee='".$fees."',PaidFee='".$paidfee."',NID='".$NextID."', Refrence='".$refrence."', Feedback='".$feedback."' WHERE RegistrationNo ='".$_GET["RegNo"]; 
+echo $name;
+$sql="UPDATE `Home` SET `UserName`='".$UN."', `Name` ='".$name."', `Date` = '".$date."', `CallDate` = '".$joiningDate."' ,`BatchTime` = '".$batchTime."', `ContactNo`='".$contactNo."', `Qualification`='".$qualification."', `College`='".$college."' , `Email`='".$email."', `Address`='".$address."', `Course`= '".$course."', `Fee`='".$fees."',`PaidFee`='".$paidfee."',`NID`='".$NextID."', `Refrence`='".$refrence."', `Feedback`='".$feedback."' WHERE RegistrationNo ='".$_GET["RegNo"]."'"; 
+echo $sql;
 
 // Check connection
 if ($conn->connect_error) 
 {
-    die("Connection failed: " . $conn->connect_error);
+   // die("Connection failed: " . $conn->connect_error);
 }
 //echo Connected successfully;
 
-if ($conn->query($sql) === TRUE) {
+if ($conn->query($sql) === TRUE) 
+{
    // echo "New record created successfully";
    //header('Location:Enquiry.php');
 } else {
     echo "Error: " . $sql . "<br>" . $conn->error;
 }
-
+}
 $conn->close();
 }
 ?> 

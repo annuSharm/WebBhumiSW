@@ -62,7 +62,7 @@ text-align:center;
 		<center><h1 style="color:white">Home Page</h1></center>
 		<br>
 		
-		<form class="form-horizontal" action="Shulekh.php" method="post">
+		<form class="form-horizontal" action="home1.php" method="post">
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-2">
 					<a class="btn" href="Enquiry.php">
@@ -111,7 +111,7 @@ text-align:center;
 				<div class="col-sm-8">
 					<input type="text" class="form-control input-sm" id="fdb" placeholder="Enter Feedback" name="fdb">
 				</div>
-				<div class="col-sm-offset-1 col-sm-1">
+				<div class="col-sm-offset col-sm-1">
 					<input type="submit" value="search" class="btn btn-primary btn-sm btn-block"></button>
 				</div>
 			</div>
@@ -123,7 +123,7 @@ text-align:center;
 
 <?php
 error_reporting(0);
-echo date('d-m-y');
+echo '<br>';
 $servername = "localhost";
 $username = "root";
 $password = "boot";
@@ -314,7 +314,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-echo '<div class="row"><div class="col-sm-12 col-sm-offset-0" style="overflow:auto; height:280px;"><table style="width:100%;">';
+echo '<div class="row"><div class="col-sm-12 col-sm-offset-0" style="overflow:auto; height:275px;"><table style="width:100%;">';
 echo "<tr><th>R.No</th><th>Call Date</th><th>Name</th><th>Course</th><th>Fee</th><th>ContactNo</th><th>Email ID</th><th>College</th><th>Qualification</th><th>Reference</th><th>Feedback</th><th>Status</th></tr>";
 
 	if (mysqli_num_rows($result)>0) 
@@ -331,8 +331,9 @@ name=\"cno\" value=\"".$row['ContactNo']."\">". $row['ContactNo']. "</td> <td>".
 value=\"".$row['Email']."\">". $row['Email']. "</td> <td>"."<input type=\"hidden\" name=\"clg\" value=\"".$row['College']."\">". 
 $row['College']. "</td>$qualification <td>"."<input type=\"hidden\" name=\"qa\" value=\"".$row['Qualification']."\">". 
 $row['Qualification']. "</td> <td>"."<input type=\"hidden\" name=\"ref\" value=\"".$row['Refrence']."\">". $row['Refrence']."</td> 
-<td>"."<input type=\"hidden\" name=\"fdb\" value=\"".$row['Feedback']."\">". $row['Feedback']. "</td> <td>"."<input type=\"submit\" 
-value=\"resitration\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></form></tr>";
+<td>"."<input type=\"hidden\" name=\"fdb\" value=\"".$row['Feedback']."\">". $row['Feedback']."<button type=\"button\" class=\"btn btn-primary dropdown-toggle pull-right\" data-toggle=\"modal\" data-target=\"#myModal\"><span class=\"caret\"></span></button></td> 
+<td>"."<input type=\"submit\"value=\"resitration\" class=\"btn btn-primary btn-sm btn-block\"></button> </td></form></tr>";
+
 		 /*echo "<tr> <td>"."<input type=\"hidden\" name=\"RegNo\" value=\"".$row['RegistrationNo']."\">". $row['RegistrationNo']. "</td>
 		 <td>"."<input type=\"hidden\" name=\"nam\" value=\"". $row['Name']. "</td> 
 		 <td>"."<input type=\"hidden\" name=\"cours\" value=\"". $row['Course']. "</td>
@@ -354,7 +355,7 @@ else
 
 if(!$_POST)
 {
-						$sql1="SELECT * FROM `home` WHERE Name LIKE '%$name' AND ContactNo LIKE '%$contactNo' AND Course LIKE '%$course' AND Refrence LIKE '%$Refrence' AND Date LIKE '%$date' AND Feedback LIKE '%$feedback'";
+	$sql1="SELECT * FROM `home` WHERE Name LIKE '%$name' AND ContactNo LIKE '%$contactNo' AND Course LIKE '%$course' AND Refrence LIKE '%$Refrence' AND Date LIKE '%$date' AND Feedback LIKE '%$feedback'";
 }
 
 
@@ -388,6 +389,59 @@ echo"</table></div></div>";
 
 $conn->close();*/
 ?>  
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog" >
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content" >
+        <div class="modal-header" style="border:5px solid black;" >
+			  <button type="button" class="close" data-dismiss="modal">&times;</button>
+			  <form action="123.php" method="POST">
+			  <h4 class="modal-title">Edit Feedback</h4>
+			
+			<div class="modal-body " >
+				<div>
+					
+					<textarea type="text" class="form-control input-md" rows="2" id="sr" placeholder="Write your new feedback " name="fdb"></textarea>
+				</div>
+				<br>
+				<div style="background-color:#451988; height:70px;margin-top:-5px; ">
+				<br>
+					<div class="col-sm-10" >
+						<input type="date" class="form-control input-sm" id="sr" placeholder="enter date" name="dat">
+					</div>
+				</div>
+				
+				<div style="background-color:#9F9DA3; height:150px; margin-top:5px;">
+				<br>
+					<div>
+						<div class="col-sm-10 col-sm-offset-1"  >
+							<input type="submit" name="submit"value="submit" style=" margin:2px;" class="btn btn-primary btn-sm btn-block"></button>
+						</div>
+					</div>
+					
+					<div>
+						<div class="col-sm-10 col-sm-offset-1"   >
+							<input type="submit" name="af" value="All Feedback" style=" margin:2px;" class="btn btn-primary btn-sm btn-block"></button>
+						</div>
+					</div>
+					<div>
+						<div class="col-sm-10 col-sm-offset-1"   >
+							<input type="submit" name="done" value="Done" style=" margin:2px;" class="btn btn-primary btn-sm btn-block"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+			</form>
+			<div class="modal-footer" style="height:50px;">
+				<button type="button" style="margin-top:3px;"class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+        
+      </div>
+    </div>
+  </div>
+</div>
 
 
 

@@ -1,13 +1,15 @@
 Please mention every thing which we need to do here.
 
 
-1)enquiry to registration send data and display in respective field
-2)editable feedback create feedback table.
-3)enquiry aceppting null data.
+1)enquiry to registration send data and display in respective field   (done)
+2)editable feedback create feedback table.(feedback is not showing in registration)
+3)enquiry aceppting null data.(done)
 4)Next isnstalment Date.
 5)entering empty data by enquery form 
 6) data is not updating and also not taking name and date and creating new registration no. by registration form
 7)need to connect feedback table to feedback
+8) on search page(sulekha page) once we search anything after that only search will show if u want to see whole data u cant.
+
 ____________________________________________________________________________________________________________
 
 commands to push & pull 
