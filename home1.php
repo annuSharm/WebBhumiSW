@@ -62,7 +62,7 @@ text-align:center;
 		<center><h1 style="color:white">Home Page</h1></center>
 		<br>
 		
-		<form class="form-horizontal" action="home1.php" method="post">
+		<form class="form-horizontal " action="home1.php" method="post">
 			<div class="form-group">
 				<div class="col-sm-offset-1 col-sm-2">
 					<a class="btn" href="Enquiry.php">
